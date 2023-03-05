@@ -51,7 +51,7 @@ function get_top_users() {
 		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
 }
 
-function get_top_users() {
+function get_top_dons() {
 	# 1 - top_filter: (string): <top_filter>
 	curl --request GET \
 		--url "$api/top/dons/?$params&top_filter=$1" \
