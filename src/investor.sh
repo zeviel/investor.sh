@@ -5,6 +5,7 @@ sign=null
 vk_user_id=null
 vk_ts=null
 vk_ref=null
+user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
 
 function authenticate() {
 	# 1 - sign: (string): <sign>
@@ -28,89 +29,89 @@ function authenticate() {
 function get_account_info() {
 	curl --request GET \
 		--url "$api/profile/?$params" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
+		--user-agent "$user_agent"
 }
 
 function get_stocks_home() {
 	curl --request GET \
 		--url "$api/stocks/home/?$params" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
+		--user-agent "$user_agent"
 }
 
 function get_top_communities() {
 	# 1 - top_filter: (string): <top_filter>
 	curl --request GET \
 		--url "$api/top/communities/?$params&top_filter=$1" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
+		--user-agent "$user_agent"
 }
 
 function get_top_users() {
 	# 1 - top_filter: (string): <top_filter>
 	curl --request GET \
 		--url "$api/top/users/?$params&top_filter=$1" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
+		--user-agent "$user_agent"
 }
 
 function get_top_dons() {
 	# 1 - top_filter: (string): <top_filter>
 	curl --request GET \
 		--url "$api/top/dons/?$params&top_filter=$1" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
+		--user-agent "$user_agent"
 }
 
 function get_shop_raffles() {
 	curl --request GET \
 		--url "$api/shop/raffles/?$params" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
+		--user-agent "$user_agent"
 }
 
 function get_transactions() {
 	curl --request GET \
 		--url "$api/transactions/?$params" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
+		--user-agent "$user_agent"
 }
 
 function get_referral_info() {
 	curl --request GET \
 		--url "$api/referral_info/?$params" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
+		--user-agent "$user_agent"
 }
 
 function get_badges() {
 	curl --request GET \
 		--url "$api/badges/?$params" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
+		--user-agent "$user_agent"
 }
 
 function get_achievements() {
 	curl --request GET \
 		--url "$api/achievements/?$params" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
+		--user-agent "$user_agent"
 }
 
 function get_exchange_rate() {
 	curl --request GET \
 		--url "$api/exchange-rate/?$params" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
+		--user-agent "$user_agent"
 }
 
 function get_user_farms() {
 	curl --request GET \
 		--url "$api/user-farms/?$params" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
+		--user-agent "$user_agent"
 }
 
 function get_farms() {
 	curl --request GET \
 		--url "$api/farms/?$params" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
+		--user-agent "$user_agent"
 }
 
 function buy_farm() {
 	# 1 - farm_id: (integer): <farm_id>
 	curl --request POST \
 		--url "$api/buy-farm/" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--data '{
 			"farm_id": '$1',
 			"params": "'?$params'"
@@ -121,7 +122,7 @@ function collect_money() {
 	# 1 - currency_type: (string): <currency_type>
 	curl --request POST \
 		--url "$api/collect-money/?$params" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--data '{
 			"currency_type": "'$1'"
 		}'
@@ -132,7 +133,7 @@ function buy_currency() {
 	# 2 - amount: (integer): <amount>
 	curl --request POST \
 		--url "$api/buy-currency/?$params" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--data '{
 			"currency_type": "'$1'",
 			"amount": '$2'
@@ -144,18 +145,18 @@ function get_stocks() {
 	# 1 - filter: (string): <filter>
 	curl --request GET \
 		--url "$api/stocks/?$params&filter=$1" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
+		--user-agent "$user_agent"
 }
 
 function get_bonuses() {
 	curl --request GET \
 		--url "$api/bonuses/?$params" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
+		--user-agent "$user_agent"
 }
 
 function get_ad_bonus() {
 	curl --request POST \
 		--url "$api/bonuses/ad?$params" \
-		--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" \
+		--user-agent "$user_agent" \
 		--data '{}'
 }
